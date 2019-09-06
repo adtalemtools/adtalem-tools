@@ -9,7 +9,7 @@ use Drush\Drupal\Commands\core\UserCommands;
 use Drush\Exceptions\UserAbortException;
 use Symfony\Component\Console\Input\InputOption;
 
-class UsersCommands extends DrushCommands
+class AtgeToolsUsersCommands extends DrushCommands
 {
 
   /**
@@ -145,9 +145,9 @@ class UsersCommands extends DrushCommands
         $account = user_load_by_name($username);
         $account->addRole('administrator');
         $account->save();
-        echo 'Administrator role has been added to ' . $username.'.';
+        print 'Administrator role has been added to ' . $username.'.';
       }
-      echo 'All users have been granted administrator roles.';
+      print 'All users have been granted administrator roles.';
     }
     else {
       throw new \Exception(dt('No users found.'));

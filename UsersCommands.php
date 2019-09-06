@@ -101,9 +101,6 @@ class UsersCommands extends DrushCommands
       $result->addRendererFunction([$command, 'renderRolesCell']);
       return $result;
     }
-    else {
-      throw new \Exception(dt('No users found.'));
-    }
   }
 
   /**
@@ -149,11 +146,7 @@ class UsersCommands extends DrushCommands
       }
       echo 'All users have been granted administrator roles.';
     }
-    else {
-      throw new \Exception(dt('No users found.'));
-    }
   }
-
 
   /**
    * @hook validate users:adminlist

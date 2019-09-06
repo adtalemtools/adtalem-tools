@@ -1,5 +1,5 @@
 <?php
-namespace Drush\Commands\UsersCommands;
+namespace Drush\Commands\adtalem_tools;
 
 use Consolidation\OutputFormatters\StructuredData\RowsOfFields;
 use Consolidation\AnnotatedCommand\CommandData;

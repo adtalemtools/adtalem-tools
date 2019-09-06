@@ -1,5 +1,5 @@
 services:
   users.commands:
-    class: \Drush\Commands\UsersCommands
+    class: \Drush\Commands\adtalem_tools
     tags:
       - { name: drush.command }

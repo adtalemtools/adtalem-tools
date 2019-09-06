@@ -1,5 +1,4 @@
 <?php
-
 namespace Drush\Commands\UsersCommands;
 
 use Consolidation\OutputFormatters\StructuredData\RowsOfFields;
@@ -10,7 +9,8 @@ use Drush\Drupal\Commands\core\UserCommands;
 use Drush\Exceptions\UserAbortException;
 use Symfony\Component\Console\Input\InputOption;
 
-class UsersCommands extends DrushCommands {
+class UsersCommands extends DrushCommands
+{
 
   /**
    * Display a list of Drupal users.
@@ -145,12 +145,68 @@ class UsersCommands extends DrushCommands {
         $account = user_load_by_name($username);
         $account->addRole('administrator');
         $account->save();
-        echo 'Administrator role has been added to ' . $username.'.\n';
+        echo 'Administrator role has been added to ' . $username.'.';
       }
       echo 'All users have been granted administrator roles.';
     }
     else {
       throw new \Exception(dt('No users found.'));
+    }
+  }
+
+
+  /**
+   * @hook validate users:adminlist
+   *
+   * @param \Consolidation\AnnotatedCommand\CommandData $commandData
+   * @return \Consolidation\AnnotatedCommand\CommandError|null
+   */
+  public function validateList(CommandData $commandData)
+  {
+    $input = $commandData->input();
+
+    $options = [
+      'blocked',
+      'active',
+    ];
+
+    if ($status = $input->getOption('status')) {
+      if (!in_array($status, $options)) {
+        throw new \Exception(dt('Unkown status @status. Status must be one of @options.', [
+          '@status' => $status,
+          '@options' => implode(', ', $options),
+        ]));
+      }
+
+      // Set the status to the key of the options array.
+      $input->setOption('status', array_search($status, $options));
+    }
+
+    // Set the roles option to an array but validate each one exists.
+    if ($roles = $input->getOption('roles')) {
+      $roles = explode(',', $roles);
+      $actual = user_roles(true);
+      $rids = [];
+
+      // Throw an exception for non-existent roles.
+      foreach ($roles as $role) {
+        if (!isset($actual[$role])) {
+          throw new \Exception(dt('Role @role does not exist.', [
+            '@role' => $role
+          ]));
+        }
+      }
+
+      $input->setOption('roles', $roles);
+    }
+
+    // Validate the last-login option.
+    if ($last = $input->getOption('last-login')) {
+      if (strtotime($last) === false) {
+        throw new \Exception(dt('Unable to convert @last to a timestamp.', [
+          '@last' => $last,
+        ]));
+      }
     }
   }
 }

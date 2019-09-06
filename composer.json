@@ -20,7 +20,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-          "UsersCommands\\Tests\\": "tests/",
+          "adtalem-tools\\Tests\\": "tests/",
           "Unish\\": "vendor/drush/drush/tests/"
         }
     },
@@ -30,7 +30,7 @@
                 "drush.services.yml": "^9.4"
             }
         },
-        "installer-name": "UsersCommands"
+        "installer-name": "adtalem-tools"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

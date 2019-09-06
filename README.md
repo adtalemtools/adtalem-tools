@@ -19,7 +19,7 @@ packages to:
  composer require adtalemtools/adtalem-tools
  ```
 
-## Commands
+## User Commands
 
 ### drush users:adminlist
 Lists Drupal admin users in a table format. See `drush users:adminlist --help`

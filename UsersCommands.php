@@ -142,9 +142,9 @@ class UsersCommands extends DrushCommands
         $account = user_load_by_name($username);
         $account->addRole('administrator');
         $account->save();
-        echo 'Administrator role has been added to ' . $username.'.';
+        print 'Administrator role has been added to ' . $username.'.';
       }
-      echo 'All users have been granted administrator roles.';
+      print 'All users have been granted administrator roles.';
     }
   }
 

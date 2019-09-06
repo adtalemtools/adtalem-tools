@@ -19,6 +19,14 @@ packages to:
  composer require adtalemtools/adtalem-tools
  ```
 
+## Deploy Commands
+
+### drush deploy:config
+Stores the BLT multisite config as an array. See `drush deploy:config --help`
+for filtering options.
+
+Aliases: blt-config
+
 ## User Commands
 
 ### drush users:adminlist

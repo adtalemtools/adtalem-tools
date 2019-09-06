@@ -1,14 +1,23 @@
 {
     "name": "adtalemtools/adtalem-tools",
-    "description": "Drush commands and shell scripts that help manage the Adtalem Drupal projects.",
+    "description": "Drush commands and shell script tools for managing Adtalem Drupal projects.",
     "type": "drupal-drush",
-    "keywords": ["drush", "drupal", "adtalem", "scripts"],
+    "homepage": "https://github.com/adtalemtools/adtalem-tools",
     "authors": [
         {
             "name": "Adtalem Global Education",
-            "homepage": "https://www.adtalem.com"
+            "homepage": "https://www.adtalem.com",
+            "role": "Company"
+        },
+        {
+            "name": "Robert Shell (robertshell22)",
+            "homepage": "https://www.drupal.org/u/robertshell22",
+            "role": "Maintainer"
         }
     ],
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^7",
         "composer/installers": "^1.4",
@@ -20,18 +29,19 @@
     },
     "autoload-dev": {
         "psr-4": {
-          "adtalem_tools\\Tests\\": "tests/",
-          "Unish\\": "vendor/drush/drush/tests/"
+            "adtalem_tools\\Tests\\": "tests/",
+            "Unish\\": "vendor/drush/drush/tests/"
         }
     },
     "extra": {
+        "installer-name": "adtalem_tools",
+        "installer-paths": {
+            "drush/Commands/{$name}": [ "adtalemtools/adtalem-tools" ]
+        },
         "drush": {
             "services": {
                 "drush.services.yml": "^9.4"
             }
-        },
-        "installer-name": "adtalem_tools"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+        }
+    }
 }

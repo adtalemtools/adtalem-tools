@@ -29,8 +29,8 @@
   },
   "autoload": {
     "psr-4": {
-      "adtalem_tools\\src\\deploy\\":  "deploy",
-      "adtalem_tools\\src\\users\\":  "users"
+      "src\\deploy\\":  "deploy",
+      "src\\users\\":  "users"
     }
   },
   "autoload-dev": {

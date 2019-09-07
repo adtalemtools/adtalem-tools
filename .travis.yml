@@ -1,26 +1,18 @@
-sudo: false
-
+# Configuration file for unit test runner at http://travis-ci.org/#!/adtalemtools/adtalem-tools
+branches:
+  only:
+    - master
+    - /^[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+.*$/
 language: php
 
-php:
-- '7.1'
+sudo: false
 
-cache:
-  directories:
-    - $HOME/.composer/cache
-
-matrix:
-  fast_finish: true
-
-before_install:
-  - composer self-update
-
-install:
-  - composer install --no-suggest
-  - ./vendor/bin/phpcs --config-set ignore_warnings_on_exit 1
-  - ./vendor/drush/drush/unish.sut.php
-  - ./tests/sut.cp.php
+env:
+  global:
+    # GitHub deploy
+    - secure: VfYokT2CchfuBRJp9/gSwfVGPfsVfkZdDVEuNWEqgrw3z4vq+5aLKqoCtPL54E5EIMjhyCE3GVo+biG35Gab1KOVgUs8zD1hAUWA1FPKfMFhoPDfI3ZJC2rX2T1iWK4ZR90pBtcPzS+2OObzTYz8go0PfeSTT6eq69Na1KcNLaE=
 
 script:
-  - ./vendor/bin/phpcs --standard=PSR2 . --ignore='vendor,tests/coverage'
-  - ./vendor/bin/phpunit
+  # Publish updated API documentation on every push to the master branch
+  - git config --global user.email $GITHUB_USER_EMAIL
+  - git config --global user.name "Drush Documentation Bot"

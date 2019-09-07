@@ -28,6 +28,7 @@ for filtering options.
 Aliases: admins-l, admins-list, list-admins
 
 ### drush users:admin
-Restores administrator role to Content Admins on lower environments.
+Restores administrator role to Content Admins on lower environments. See `drush users:admin --help`
+for filtering options.
 
 Aliases: uadmin, user-admin, admin-users

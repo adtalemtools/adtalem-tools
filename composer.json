@@ -27,9 +27,16 @@
     "phpunit/phpunit": "~5",
     "squizlabs/php_codesniffer": "~3"
   },
+  "autoload": {
+    "psr-4": {
+      "Drush\\":            "src/",
+      "Drush\\Commands\\":  "src/Commands/",
+      "Drush\\Commands\\Deploy\\":  "src/Commands/Deploy",
+      "Drush\\Commands\\Users\\":  "src/Commands/Users"
+    }
+  },
   "autoload-dev": {
     "psr-4": {
-      "adtalem-tools\\": "src/",
       "adtalem_tools\\Tests\\": "tests/",
       "Unish\\": "vendor/drush/drush/tests/"
     }

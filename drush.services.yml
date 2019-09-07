@@ -1,9 +1,9 @@
 services:
   deploy.commands:
-    class: \Drush\Commands\adtalem_tools\AtgeToolsDeployCommands
+    class: \Drush\Commands\adtalem_tools\deploy
     tags:
       - { name: drush.command }
   users.commands:
-    class: \Drush\Commands\adtalem_tools\AtgeToolsUsersCommands
+    class: \Drush\Commands\adtalem_tools\users
     tags:
       - { name: drush.command }

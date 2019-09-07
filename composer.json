@@ -29,10 +29,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Drush\\":            "src/",
-      "Drush\\Commands\\":  "src/Commands/",
-      "Drush\\Commands\\Deploy\\":  "src/Commands/Deploy",
-      "Drush\\Commands\\Users\\":  "src/Commands/Users"
+      "adtalem_tools\\src\\deploy\\":  "deploy",
+      "adtalem_tools\\src\\users\\":  "users"
     }
   },
   "autoload-dev": {

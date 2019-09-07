@@ -1,9 +1,9 @@
 services:
   deploy.commands:
-    class: \Drush\Commands\adtalem_tools\deploy
+    class: \Drush\Commands\adtalem_tools\src\deploy
     tags:
       - { name: drush.command }
   users.commands:
-    class: \Drush\Commands\adtalem_tools\users
+    class: \Drush\Commands\adtalem_tools\src\users
     tags:
       - { name: drush.command }

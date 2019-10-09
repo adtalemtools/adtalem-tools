@@ -118,7 +118,6 @@ class UsersCommands extends DrushCommands
    *   Adds the administrator role to all users with the content_admin role.
    * @aliases uadmin, user-admin, admin-users
    * @bootstrap full
-   * @throws \Exception
    * @return array
    */
   public function adminUsers($options = ['roles' => InputOption::VALUE_REQUIRED]) {
@@ -147,10 +146,9 @@ class UsersCommands extends DrushCommands
         $account->save();
         echo 'Administrator role has been added to ' . $username.'.';
       }
-      echo 'All users have been granted administrator roles.';
     }
     else {
-      throw new \Exception(dt('No users found.'));
+      echo 'No users found.';
     }
   }
 

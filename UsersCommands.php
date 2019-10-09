@@ -127,12 +127,12 @@ class UsersCommands extends DrushCommands
       ->condition('uid', 0, '!=');
 
     if (empty($options['roles'])) {
-      $options['roles'] = 'content_admin';
+      $options['roles'] = '';
     }
 
     if (isset($options['roles'])) {
       $query->condition('status', 1);
-      $query->condition('roles', $options['roles']);
+      $query->condition('roles', 'content_admin');
     }
     $ids = $query->execute();
 

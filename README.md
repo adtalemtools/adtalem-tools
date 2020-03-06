@@ -1,6 +1,8 @@
-[![Build Status](https://travis-ci.org/adtalemtools/adtalem-tools.svg?branch=master)](https://travis-ci.org/adtalemtools/adtalem-tools)
+![Image description](img/adtalem-mt-logo.png)
 
-# adtalem-tools
+Adtalem Drupal CLI Tools
+====
+
 Drush commands and shell scripts that help manage the Adtalem Drupal projects.
 
 ## Requirements
